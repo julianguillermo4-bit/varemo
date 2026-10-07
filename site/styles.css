@@ -266,3 +266,20 @@
  .price-vehicle { flex-direction:column; align-items:flex-start; gap:8px; }
  .vehicle-name { font-size:17px; }
 }
+
+/* Keep the opening offer visible alongside each vehicle price. */
+.opening-badge {
+  display:inline-flex; align-items:center; align-self:flex-start; gap:8px;
+  width:fit-content; max-width:100%; padding:8px 11px;
+  border:1px solid #e8681d; border-radius:7px; background:var(--orange);
+  color:var(--ink); font-size:14px; font-weight:750; line-height:1.35;
+  letter-spacing:0; box-shadow:0 2px 0 #e8681d;
+}
+.opening-badge svg { width:17px; height:17px; flex-shrink:0; stroke:currentColor; stroke-width:1.8; fill:none; }
+.opening-promo-note { margin-top:20px; font-size:16px; line-height:1.65; color:var(--ink); }
+@media(max-width:600px) {
+  .opening-badge { grid-column:1/-1; grid-row:1; }
+  .price-card .price-vehicle { grid-column:1; grid-row:2; }
+  .price-card .price-amount { grid-column:2; grid-row:2; }
+  .price-card .price-action { grid-column:1/-1; grid-row:3; }
+}

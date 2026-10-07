@@ -1,6 +1,6 @@
 const copy = {
   es: {
-    from: 'Desde', quote: 'A cotizar', assessment: 'Según evaluación', reference: 'Precio de referencia',
+    from: 'Desde', quote: 'A cotizar', assessment: 'Según evaluación', reference: 'Precio de apertura',
     review: {
       method: 'Revisión previa',
       description: 'El barro grueso o la arena necesitan limpieza previa. Primero debemos confirmar un lugar donde se pueda realizar el proceso adecuado.',
@@ -37,7 +37,7 @@ const copy = {
     ending: 'Quisiera conocer la propuesta y consultar el método y el precio orientativo. Entiendo que todavía no se confirman reservas.'
   },
   en: {
-    from: 'From', quote: 'Quote required', assessment: 'After assessment', reference: 'Reference price',
+    from: 'From', quote: 'Quote required', assessment: 'After assessment', reference: 'Launch price',
     review: {
       method: 'Assessment needed first',
       description: 'Heavy mud or sand require pre-cleaning. First, we need to confirm a location where the appropriate process can be carried out.',
@@ -96,5 +96,5 @@ export function recommendService(vehicle, dirt, water, prices = { sedan: 25, suv
 
 export function buildSummary({ vehicle, dirt, water, result }, language = 'es') {
   const text = copy[language] ?? copy.es;
-  return `${text.greeting}\n\n${text.labels.vehicle}: ${text.names.vehicle[vehicle] || text.unknown}.\n${text.labels.dirt}: ${text.names.dirt[dirt] || text.unknown}.\n${text.labels.water}: ${text.names.water[water] || text.unknown}.\n${text.labels.method}: ${result.method}.\n${text.labels.price}: ${result.price}.\n\n${text.ending}`;
+  return `${text.greeting}\n\n${text.labels.vehicle}: ${text.names.vehicle[vehicle] || text.unknown}.\n${text.labels.dirt}: ${text.names.dirt[dirt] || text.unknown}.\n${text.labels.water}: ${text.names.water[water] || text.unknown}.\n${text.labels.method}: ${result.method}.\n${result.quoteRequired ? text.labels.price : text.reference}: ${result.price}.\n\n${text.ending}`;
 }

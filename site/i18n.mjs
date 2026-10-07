@@ -1,4 +1,4 @@
-import { translations } from './translations.mjs?v=20261007-readability';
+import { translations } from './translations.mjs?v=20261007-opening-promo';
 
 const preferenceKey = 'varemo-language';
 const supported = new Set(['es', 'en']);
