@@ -1,5 +1,5 @@
 import {recommendService,buildSummary} from './service-guide.mjs';
-import {initialLanguage,applyLanguage,translate} from './i18n.mjs';
+import {initialLanguage,applyLanguage,translate} from './i18n.mjs?v=20261007-readability';
 
 const config=window.VAREMO_CONFIG;
 const phone=String(config.whatsappNumber).replace(/\D/g,'');
